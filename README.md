@@ -16,6 +16,17 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 - [Prettier](https://prettier.io/) as a code formatting tool
 - [TypeScript](https://www.typescriptlang.org/) as a type checking tool
 
+## Deployment Links
+
+The project is deployed on AWS, utilizing services like S3 for static website hosting and CloudFront for content delivery and caching.
+
+### [AWS S3 Bucket](http://nostalgic-game-zone.s3-website-eu-west-1.amazonaws.com/)
+- The S3 bucket hosts the static assets of the application. It's configured to be publicly readable but it’s recommended to access the application through the CloudFront distribution for optimized load times and performance.
+
+### [AWS CloudFront Distribution](https://d3j72aese57d5k.cloudfront.net/)
+- The CloudFront distribution is the recommended way to access the application. It serves the content stored in the S3 bucket but with the added benefits of caching, content delivery optimization, and possibly added security configurations, making the user experience more robust and responsive.
+
+
 ## Available Scripts
 
 ### `start`
