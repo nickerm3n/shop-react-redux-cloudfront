@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
 import { useAvailableProducts } from "~/queries/products";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const { data = [], isLoading } = useAvailableProducts();
@@ -25,13 +26,19 @@ export default function Products() {
           >
             <CardMedia
               sx={{ pt: "56.25%" }}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={
+                product.imageUrl
+                  ? product.imageUrl
+                  : `https://source.unsplash.com/random?sig=${index}`
+              }
               title="Image title"
             />
             <CardContent sx={{ flexGrow: 1 }}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {product.title}
-              </Typography>
+              <Link to={`product/${product.id}`}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {product.title}
+                </Typography>
+              </Link>
               <Typography>{formatAsPrice(product.price)}</Typography>
             </CardContent>
             <CardActions>

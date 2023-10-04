@@ -5,6 +5,7 @@ export const ProductSchema = Yup.object({
   title: Yup.string().required().default(""),
   description: Yup.string().default(""),
   price: Yup.number().positive().required().defined().default(0),
+  imageUrl: Yup.string().url().default(""),
 });
 
 export const AvailableProductSchema = ProductSchema.shape({
@@ -13,3 +14,10 @@ export const AvailableProductSchema = ProductSchema.shape({
 
 export type Product = Yup.InferType<typeof ProductSchema>;
 export type AvailableProduct = Yup.InferType<typeof AvailableProductSchema>;
+
+export type AvailableProductsResponse = {
+  products: AvailableProduct[];
+};
+export type AvailableProductResponse = {
+  product: AvailableProduct;
+};
